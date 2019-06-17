@@ -171,12 +171,6 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>(venv) $ pip install flask-sqlalchemy</p>
 </blockquote>
-<h2 id="2-安装Flask-migrate"><a href="#2-安装Flask-migrate" class="headerlink" title="2.安装Flask-migrate"></a>2.安装Flask-migrate</h2><p>安装第二个扩展模块是flask-migrate，我们在用sqlalchemy时会发现，只有在数据库表不存在的时候，sqlalchemy才能创建新的表，但是并不能对表的字段进行修改，这在项目中是很不方便的，这个模块是包装了Alembic，可以通过简单的命令进行字段的修改。同上，在虚拟环境中安装。</p>
-<blockquote>
-<p>(venv) $ pip install flask-migrate</p>
-</blockquote>
-<h2 id="3-在项目中配置Flask-SQLalchemy"><a href="#3-在项目中配置Flask-SQLalchemy" class="headerlink" title="3.在项目中配置Flask-SQLalchemy"></a>3.在项目中配置Flask-SQLalchemy</h2><p>我在flask项目中使用的是工厂函数来创建flask对象app，所以代码如下:</p>
-<h3 id="路径：flask-test-app-init-py"><a href="#路径：flask-test-app-init-py" class="headerlink" title="路径：flask_test/app/init.py/"></a>路径：flask_test/app/<strong>init</strong>.py/</h3>
         
           <a class="article-more-a" href="/2019/05/31/我的第一篇博客文章/#more">more >></a>
         
