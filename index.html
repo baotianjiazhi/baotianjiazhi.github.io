@@ -166,7 +166,48 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="123"><a href="#123" class="headerlink" title="123"></a>123</h1>
+        <p>@[TOC]</p>
+<h1 id="SQLalchemy"><a href="#SQLalchemy" class="headerlink" title="SQLalchemy"></a>SQLalchemy</h1><p>之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。</p>
+<h2 id="1-Flask安装SQLalchemy"><a href="#1-Flask安装SQLalchemy" class="headerlink" title="1.Flask安装SQLalchemy"></a>1.Flask安装SQLalchemy</h2><p>flask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安装flask-sqlalchemy。</p>
+<blockquote>
+<p>(venv) $ pip install flask-sqlalchemy</p>
+</blockquote>
+<h2 id="2-安装Flask-migrate"><a href="#2-安装Flask-migrate" class="headerlink" title="2.安装Flask-migrate"></a>2.安装Flask-migrate</h2><p>安装第二个扩展模块是flask-migrate，我们在用sqlalchemy时会发现，只有在数据库表不存在的时候，sqlalchemy才能创建新的表，但是并不能对表的字段进行修改，这在项目中是很不方便的，这个模块是包装了Alembic，可以通过简单的命令进行字段的修改。同上，在虚拟环境中安装。</p>
+<blockquote>
+<p>(venv) $ pip install flask-migrate</p>
+</blockquote>
+<h2 id="3-在项目中配置Flask-SQLalchemy"><a href="#3-在项目中配置Flask-SQLalchemy" class="headerlink" title="3.在项目中配置Flask-SQLalchemy"></a>3.在项目中配置Flask-SQLalchemy</h2><p>我在flask项目中使用的是工厂函数来创建flask对象app，所以代码如下:</p>
+<h3 id="路径：flask-test-app-init-py"><a href="#路径：flask-test-app-init-py" class="headerlink" title="路径：flask_test/app/init.py/"></a>路径：flask_test/app/<strong>init</strong>.py/</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from flask_migrate import Migrate</span><br><span class="line">from flask_sqlalchemy import SQLAlchemy</span><br><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">db = SQLAlchemy()</span><br><span class="line">migrate = Migrate()</span><br><span class="line"></span><br><span class="line">def create_app():</span><br><span class="line">	app = Flask(__name__)</span><br><span class="line">	app.config.from_object(&apos;config.settings&apos;)</span><br><span class="line">	db.init_app(app)</span><br><span class="line">	migrate.init_app(app, db)</span><br><span class="line">	return app</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-添加配置文件"><a href="#4-添加配置文件" class="headerlink" title="4.添加配置文件"></a>4.添加配置文件</h2><h3 id="路径：flask-test-config-settings-py"><a href="#路径：flask-test-config-settings-py" class="headerlink" title="路径：flask_test/config/settings.py"></a>路径：flask_test/config/settings.py</h3><p>这里的配置需要根据自己的mysql或者sqlite来配置，我提供了两种配置方法，第一种是直接设定固定的路径:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># pymysql 用于连接mysql数据库，&lt;username&gt;，&lt;password&gt;填自己mysql的用户名和密码，&lt;database&gt;填数据库名</span><br><span class="line">SQLALCHEMY_DATABASE_URI = &quot;mysql+pymysql://&lt;username&gt;:&lt;password&gt;@localhost:3306/&lt;database&gt;&quot; </span><br><span class="line"># 如果设置成 True (默认情况)，Flask-SQLAlchemy 将会追踪对象的修改并且发送信号。这需要额外的内存， 如果不必要的可以禁用它。（摘自flask-SQLalchemy）</span><br><span class="line">SQLALCHEMY_TRACK_MODIFICATIONS = True</span><br><span class="line"># 自己生成的密钥</span><br><span class="line">SECRET_KEY = &apos;45ecde8ffff745ccb9ce1eb8499bc70e&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-创建模型"><a href="#5-创建模型" class="headerlink" title="5.创建模型"></a>5.创建模型</h2><p>因为我是看的米格尔的flask创建一个微博，所以模型大概就是用户，发表的文章等。</p>
+<h3 id="路径：flask-test-config-models-py"><a href="#路径：flask-test-config-models-py" class="headerlink" title="路径：flask_test/config/models.py"></a>路径：flask_test/config/models.py</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from app import db</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class User(db.Model):</span><br><span class="line">    id = db.Column(db.Integer, primary_key=True)</span><br><span class="line">    username = db.Column(db.String(64), index=True, unique=True)</span><br><span class="line">    email = db.Column(db.String(120), index=True, unique=True)</span><br><span class="line">    password_hash = db.Column(db.String(128))</span><br><span class="line"></span><br><span class="line">    def __repr__(self):</span><br><span class="line">        return &apos;&lt;User &#123;&#125;&gt;&apos;.format(self.username)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>repr</strong>函数会告诉python如何打印此对象，例如<br><img src="https://img-blog.csdnimg.cn/20190418100239406.png" alt="在这里插入图片描述"></p>
+</blockquote>
+<h2 id="6-数据库迁移"><a href="#6-数据库迁移" class="headerlink" title="6.数据库迁移"></a>6.数据库迁移</h2><p>为了完成这项看似困难的任务，Alembic维护着一个迁移存储库，它是一个存储迁移脚本的目录。每次对数据库模式进行更改时，都会将迁移脚本添加到存储库，其中包含更改的详细信息。flask操作数据库都是通过原生的命令</p>
+<blockquote>
+<p>flask db 子命令。</p>
+</blockquote>
+<p>因此在数据库迁移之前我们需要先初始化数据库</p>
+<blockquote>
+<p>flask db init</p>
+</blockquote>
+<p>请记住，该flask命令依赖于FLASK_APP环境变量来了解Flask应用程序的位置。<br>接下来就可以进行第一次数据库迁移</p>
+<blockquote>
+<p>flask db migrate</p>
+</blockquote>
+<p>该flask db migrate命令不对数据库进行任何更改，它只生成迁移脚本。要将更改应用于数据库，必须使用该命令flask db upgrade。</p>
+<blockquote>
+<p>flask db upgrade</p>
+</blockquote>
+<p>接下来我们可以自己在数据库中查看对应的user表已经生成<br><img src="https://img-blog.csdnimg.cn/20190418101523189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjAzMjUx,size_16,color_FFFFFF,t_70" alt="数据库表"><br>说明迁移已经成功，通过ORM实现了从对象到数据库关系的映射。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://blog.miguelgrinberg.com/" target="_blank" rel="noopener">https://blog.miguelgrinberg.com/</a>  我第一次做flask参考的博客，也是狗书的作者，其实狗书里很多东西，他在博客上已经写了，所以可以结合flask的官方文档和这个博客来学习，需要科学上网。</p>
+<h2 id="个人github"><a href="#个人github" class="headerlink" title="个人github"></a>个人github</h2><p>里面有我已经完成的上面提到的米格尔的项目，大家可以下载一下自己参考。<br><a href="https://github.com/baotianjiazhi/microblog" target="_blank" rel="noopener">https://github.com/baotianjiazhi/microblog</a></p>
+
       
 
       
