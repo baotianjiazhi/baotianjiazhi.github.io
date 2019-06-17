@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>我的第一篇博客文章 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="@[TOC] SQLalchemy之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。 1.Flask安装SQLalchemyflask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安">
+  <meta name="description" content="SQLalchemy之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。 1.Flask安装SQLalchemyflask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安装flask-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的第一篇博客文章">
 <meta property="og:url" content="http://yoursite.com/2019/05/31/我的第一篇博客文章/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="@[TOC] SQLalchemy之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。 1.Flask安装SQLalchemyflask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安">
+<meta property="og:description" content="SQLalchemy之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。 1.Flask安装SQLalchemyflask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安装flask-">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190418100239406.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190418101523189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjAzMjUx,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-06-17T08:35:07.848Z">
+<meta property="og:updated_time" content="2019-06-17T08:40:48.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的第一篇博客文章">
-<meta name="twitter:description" content="@[TOC] SQLalchemy之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。 1.Flask安装SQLalchemyflask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安">
+<meta name="twitter:description" content="SQLalchemy之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。 1.Flask安装SQLalchemyflask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安装flask-">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190418100239406.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -171,8 +171,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>@[TOC]</p>
-<h1 id="SQLalchemy"><a href="#SQLalchemy" class="headerlink" title="SQLalchemy"></a>SQLalchemy</h1><p>之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。</p>
+        <h1 id="SQLalchemy"><a href="#SQLalchemy" class="headerlink" title="SQLalchemy"></a>SQLalchemy</h1><p>之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。</p>
 <h2 id="1-Flask安装SQLalchemy"><a href="#1-Flask安装SQLalchemy" class="headerlink" title="1.Flask安装SQLalchemy"></a>1.Flask安装SQLalchemy</h2><p>flask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安装flask-sqlalchemy。</p>
 <blockquote>
 <p>(venv) $ pip install flask-sqlalchemy</p>
@@ -182,7 +181,8 @@ var _hmt = _hmt || [];
 <p>(venv) $ pip install flask-migrate</p>
 </blockquote>
 <h2 id="3-在项目中配置Flask-SQLalchemy"><a href="#3-在项目中配置Flask-SQLalchemy" class="headerlink" title="3.在项目中配置Flask-SQLalchemy"></a>3.在项目中配置Flask-SQLalchemy</h2><p>我在flask项目中使用的是工厂函数来创建flask对象app，所以代码如下:</p>
-<h3 id="路径：flask-test-app-init-py"><a href="#路径：flask-test-app-init-py" class="headerlink" title="路径：flask_test/app/init.py/"></a>路径：flask_test/app/<strong>init</strong>.py/</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from flask_migrate import Migrate</span><br><span class="line">from flask_sqlalchemy import SQLAlchemy</span><br><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">db = SQLAlchemy()</span><br><span class="line">migrate = Migrate()</span><br><span class="line"></span><br><span class="line">def create_app():</span><br><span class="line">	app = Flask(__name__)</span><br><span class="line">	app.config.from_object(&apos;config.settings&apos;)</span><br><span class="line">	db.init_app(app)</span><br><span class="line">	migrate.init_app(app, db)</span><br><span class="line">	return app</span><br></pre></td></tr></table></figure>
+<h3 id="路径：flask-test-app-init-py"><a href="#路径：flask-test-app-init-py" class="headerlink" title="路径：flask_test/app/init.py/"></a>路径：flask_test/app/<strong>init</strong>.py/</h3><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from flask_migrate import Migrate</span><br><span class="line">from flask_sqlalchemy import SQLAlchemy</span><br><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">db = SQLAlchemy()</span><br><span class="line">migrate = Migrate()</span><br><span class="line"></span><br><span class="line">def create_app():</span><br><span class="line">	app = Flask(__name__)</span><br><span class="line">	app.config.from_object(&apos;config.settings&apos;)</span><br><span class="line">	db.init_app(app)</span><br><span class="line">	migrate.init_app(app, db)</span><br><span class="line">	return app</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-添加配置文件"><a href="#4-添加配置文件" class="headerlink" title="4.添加配置文件"></a>4.添加配置文件</h2><h3 id="路径：flask-test-config-settings-py"><a href="#路径：flask-test-config-settings-py" class="headerlink" title="路径：flask_test/config/settings.py"></a>路径：flask_test/config/settings.py</h3><p>这里的配置需要根据自己的mysql或者sqlite来配置，我提供了两种配置方法，第一种是直接设定固定的路径:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># pymysql 用于连接mysql数据库，&lt;username&gt;，&lt;password&gt;填自己mysql的用户名和密码，&lt;database&gt;填数据库名</span><br><span class="line">SQLALCHEMY_DATABASE_URI = &quot;mysql+pymysql://&lt;username&gt;:&lt;password&gt;@localhost:3306/&lt;database&gt;&quot; </span><br><span class="line"># 如果设置成 True (默认情况)，Flask-SQLAlchemy 将会追踪对象的修改并且发送信号。这需要额外的内存， 如果不必要的可以禁用它。（摘自flask-SQLalchemy）</span><br><span class="line">SQLALCHEMY_TRACK_MODIFICATIONS = True</span><br><span class="line"># 自己生成的密钥</span><br><span class="line">SECRET_KEY = &apos;45ecde8ffff745ccb9ce1eb8499bc70e&apos;</span><br></pre></td></tr></table></figure>
