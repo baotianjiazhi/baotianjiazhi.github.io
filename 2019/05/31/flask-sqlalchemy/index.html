@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Bao的博客">
 <meta property="og:description" content="SQLalchemy之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。 1.Flask安装SQLalchemyflask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安装flask-">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/05/31/flask-sqlalchemy/%22/images/flask.jpg%22">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/flask-sqlalchemy/%22img/dflask.png%22">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190418101523189.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwMjAzMjUx,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-06-19T02:46:11.479Z">
+<meta property="og:updated_time" content="2019-07-02T02:21:52.430Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask_SQLalchemy">
 <meta name="twitter:description" content="SQLalchemy之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。 1.Flask安装SQLalchemyflask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安装flask-">
-<meta name="twitter:image" content="http://yoursite.com/2019/05/31/flask-sqlalchemy/%22/images/flask.jpg%22">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/31/flask-sqlalchemy/%22img/dflask.png%22">
   
     <link rel="alternative" href="/atom.xml" title="Bao的博客" type="application/atom+xml">
   
@@ -193,7 +193,7 @@ var _hmt = _hmt || [];
 <h3 id="路径：flask-test-config-models-py"><a href="#路径：flask-test-config-models-py" class="headerlink" title="路径：flask_test/config/models.py"></a>路径：flask_test/config/models.py</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from app import db</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class User(db.Model):</span><br><span class="line">    id = db.Column(db.Integer, primary_key=True)</span><br><span class="line">    username = db.Column(db.String(64), index=True, unique=True)</span><br><span class="line">    email = db.Column(db.String(120), index=True, unique=True)</span><br><span class="line">    password_hash = db.Column(db.String(128))</span><br><span class="line"></span><br><span class="line">    def __repr__(self):</span><br><span class="line">        return &apos;&lt;User &#123;&#125;&gt;&apos;.format(self.username)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p><strong>repr</strong>函数会告诉python如何打印此对象，例如<br><img src="%22/images/flask.jpg%22" alt="在这里插入图片描述"></p>
+<p><strong>repr</strong>函数会告诉python如何打印此对象，例如<br><img src="%22img/dflask.png%22" alt="在这里插入图片描述"></p>
 </blockquote>
 <h2 id="6-数据库迁移"><a href="#6-数据库迁移" class="headerlink" title="6.数据库迁移"></a>6.数据库迁移</h2><p>为了完成这项看似困难的任务，Alembic维护着一个迁移存储库，它是一个存储迁移脚本的目录。每次对数据库模式进行更改时，都会将迁移脚本添加到存储库，其中包含更改的详细信息。flask操作数据库都是通过原生的命令</p>
 <blockquote>
