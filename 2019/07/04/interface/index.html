@@ -9,13 +9,14 @@
   <title>interface | Bao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前记今天在复习Go语言笔记的时候又看了一遍interface的定义，发现自己还有很多地方的记忆不是很清晰，所以写一篇博客记录一下重点。 Go语言中的interface1. 定义接口是一种调用契约，是多个方法声明的集合。 在某些动态语言中，接口也被称为接口协议。准备交互的双方，共同遵守事先约定的规则，使得在无须知道对方身份的情况下进行协作。接口要实现的是做什么，而不关注谁来做，怎么做。接口解除了类型">
+<meta name="keywords" content="go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="interface">
 <meta property="og:url" content="http://yoursite.com/2019/07/04/interface/index.html">
 <meta property="og:site_name" content="Bao的博客">
 <meta property="og:description" content="前记今天在复习Go语言笔记的时候又看了一遍interface的定义，发现自己还有很多地方的记忆不是很清晰，所以写一篇博客记录一下重点。 Go语言中的interface1. 定义接口是一种调用契约，是多个方法声明的集合。 在某些动态语言中，接口也被称为接口协议。准备交互的双方，共同遵守事先约定的规则，使得在无须知道对方身份的情况下进行协作。接口要实现的是做什么，而不关注谁来做，怎么做。接口解除了类型">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-04T02:18:48.636Z">
+<meta property="og:updated_time" content="2019-07-04T02:28:01.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="interface">
 <meta name="twitter:description" content="前记今天在复习Go语言笔记的时候又看了一遍interface的定义，发现自己还有很多地方的记忆不是很清晰，所以写一篇博客记录一下重点。 Go语言中的interface1. 定义接口是一种调用契约，是多个方法声明的集合。 在某些动态语言中，接口也被称为接口协议。准备交互的双方，共同遵守事先约定的规则，使得在无须知道对方身份的情况下进行协作。接口要实现的是做什么，而不关注谁来做，怎么做。接口解除了类型">
@@ -181,6 +182,8 @@ var _hmt = _hmt || [];
 <li>只能声明方法，不能实现。</li>
 <li>可嵌入其他接口类型。</li>
 </ul>
+<a id="more"></a>
+
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>接口通常以<code>er</code>作为名称后缀，方法名是声明组成部分，但参数名可不同或省略。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">type tester interface&#123;</span><br><span class="line">	test()</span><br><span class="line">	string() string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type data struct &#123;&#125;</span><br><span class="line"></span><br><span class="line">func(*data) test() &#123;&#125;</span><br><span class="line">func(data) string() string &#123;return &quot;&quot;&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	var d data</span><br><span class="line"></span><br><span class="line">	// var t tester = d // 错误：data does not implement tester</span><br><span class="line">		// (test method has pointer receiver)</span><br><span class="line"></span><br><span class="line">	var t tester = &amp;d</span><br><span class="line">	t.test()</span><br><span class="line">	println(t.string())</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -197,6 +200,17 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -398,6 +412,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
             
             <div class="clearfix"></div>
