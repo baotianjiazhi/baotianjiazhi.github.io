@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>interface | Bao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前记今天在复习Go语言笔记的时候又看了一遍interface的定义，发现自己还有很多地方的记忆不是很清晰，所以写一篇博客记录一下重点。 Go语言中的interface1. 定义接口是一种调用契约，是多个方法声明的集合。 在某些动态语言中，接口也被称为接口协议。准备交互的双方，共同遵守事先约定的规则，使得在无须知道对方身份的情况下进行协作。接口要实现的是做什么，而不关注谁来做，怎么做。接口解除了类型">
+  <meta name="description" content="前记今天在复习Go语言笔记的时候又看了一遍interface的定义，发现自己还有很多地方的记忆不是很清晰，所以写一篇博客记录一下重点。 Go语言中的interface(1)1. 定义接口是一种调用契约，是多个方法声明的集合。 在某些动态语言中，接口也被称为接口协议。准备交互的双方，共同遵守事先约定的规则，使得在无须知道对方身份的情况下进行协作。接口要实现的是做什么，而不关注谁来做，怎么做。接口解除">
 <meta name="keywords" content="go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="interface">
 <meta property="og:url" content="http://yoursite.com/2019/07/04/interface/index.html">
 <meta property="og:site_name" content="Bao的博客">
-<meta property="og:description" content="前记今天在复习Go语言笔记的时候又看了一遍interface的定义，发现自己还有很多地方的记忆不是很清晰，所以写一篇博客记录一下重点。 Go语言中的interface1. 定义接口是一种调用契约，是多个方法声明的集合。 在某些动态语言中，接口也被称为接口协议。准备交互的双方，共同遵守事先约定的规则，使得在无须知道对方身份的情况下进行协作。接口要实现的是做什么，而不关注谁来做，怎么做。接口解除了类型">
+<meta property="og:description" content="前记今天在复习Go语言笔记的时候又看了一遍interface的定义，发现自己还有很多地方的记忆不是很清晰，所以写一篇博客记录一下重点。 Go语言中的interface(1)1. 定义接口是一种调用契约，是多个方法声明的集合。 在某些动态语言中，接口也被称为接口协议。准备交互的双方，共同遵守事先约定的规则，使得在无须知道对方身份的情况下进行协作。接口要实现的是做什么，而不关注谁来做，怎么做。接口解除">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-04T02:28:01.108Z">
+<meta property="og:updated_time" content="2019-07-05T01:28:42.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="interface">
-<meta name="twitter:description" content="前记今天在复习Go语言笔记的时候又看了一遍interface的定义，发现自己还有很多地方的记忆不是很清晰，所以写一篇博客记录一下重点。 Go语言中的interface1. 定义接口是一种调用契约，是多个方法声明的集合。 在某些动态语言中，接口也被称为接口协议。准备交互的双方，共同遵守事先约定的规则，使得在无须知道对方身份的情况下进行协作。接口要实现的是做什么，而不关注谁来做，怎么做。接口解除了类型">
+<meta name="twitter:description" content="前记今天在复习Go语言笔记的时候又看了一遍interface的定义，发现自己还有很多地方的记忆不是很清晰，所以写一篇博客记录一下重点。 Go语言中的interface(1)1. 定义接口是一种调用契约，是多个方法声明的集合。 在某些动态语言中，接口也被称为接口协议。准备交互的双方，共同遵守事先约定的规则，使得在无须知道对方身份的情况下进行协作。接口要实现的是做什么，而不关注谁来做，怎么做。接口解除">
   
     <link rel="alternative" href="/atom.xml" title="Bao的博客" type="application/atom+xml">
   
@@ -170,7 +170,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="前记"><a href="#前记" class="headerlink" title="前记"></a>前记</h1><p>今天在复习Go语言笔记的时候又看了一遍<code>interface</code>的定义，发现自己还有很多地方的记忆不是很清晰，所以写一篇博客记录一下重点。</p>
-<h1 id="Go语言中的interface"><a href="#Go语言中的interface" class="headerlink" title="Go语言中的interface"></a>Go语言中的interface</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h2><p>接口是一种调用契约，是多个方法声明的集合。</p>
+<h1 id="Go语言中的interface-1"><a href="#Go语言中的interface-1" class="headerlink" title="Go语言中的interface(1)"></a>Go语言中的interface(1)</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h2><p>接口是一种调用契约，是多个方法声明的集合。</p>
 <p>在某些动态语言中，接口也被称为接口协议。准备交互的双方，共同遵守事先约定的规则，使得在无须知道对方身份的情况下进行协作。接口要实现的是<code>做什么</code>，而不关注谁来做，怎么做。接口解除了类型依赖，屏蔽内部结构和实现细节。</p>
 <p>Go接⼜实现机制很简洁，只要⽬标类型⽅法集内包含接口声明的全部⽅法，就被视为实现了该接口，无须做显⽰声明。当然，⽬标类型可实现多个接口。</p>
 <p>接口自身也是一种<code>结构类型</code>，只是编译器会对其做出诸多限制</p>
@@ -274,6 +274,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/07/05/interface2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          interface2
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/23/note/" id="article-nav-older" class="article-nav-link-wrap">
@@ -399,7 +408,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -415,7 +424,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂记</a>
               </li>
             
             <div class="clearfix"></div>
