@@ -233,6 +233,119 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-golang中字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/17/golang中字符串/">golang中的字符串</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/17/golang中字符串/" class="archive-article-date">
+  	<time datetime="2020-06-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https-github-com-golang101-golang101。"><a href="#由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https-github-com-golang101-golang101。" class="headerlink" title="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https://github.com/golang101/golang101。"></a>由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：<a href="https://github.com/golang101/golang101。" target="_blank" rel="noopener">https://github.com/golang101/golang101。</a></h3><ol>
+<li>字符串在golang中的内部结构定义<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type _string struct &#123;</span><br><span class="line">	elements *byte // 引用着底层的字节</span><br><span class="line">	len      int   // 字符串中的字节数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>从这个声明来看，我们可以将一个字符串的内部定义看作为一个字节序列。 事实上，我们确实可以把一个字符串看作是一个元素类型为byte的     （且元素不可修改的）切片。</p>
+<ol start="2">
+<li>golang中字符串的一些小tips</li>
+</ol>
+<ul>
+<li>字符串值（和布尔以及各种数值类型的值）可以被用做常量。</li>
+<li>Go支持两种风格的字符串字面量表示形式：双引号风格（解释型字面表示）和反引号风格（直白字面表示）。</li>
+<li>字符串类型的零值为空字符串。一个空字符串在字面上可以用””或者``来表示。</li>
+<li>可以用运算符+和+=来衔接字符串。</li>
+<li>字符串类型都是可比较类型。同一个字符串类型的值可以用==和!=比较运算符来比较。 并且和整数/浮点数一样，同一个字符串类型的值也可以用&gt;、&lt;、&gt;=和&lt;=比较运算符来比较。 当比较两个字符串值的时候，它们的底层字节将逐一进行比较。如果一个字符串是另一个字符串的前缀，并且另一个字符串较长，则另一个字符串为两者中的较大者。</li>
+</ul>
+<blockquote>
+<p>和Java语言一样，字符串值的内容（即底层字节）是不可更改的。 字符串值的长度也是不可独立被更改的。 一个可寻址的字符串只能通过将另一个字符串赋值给它来整体修改它。</p>
+</blockquote>
+<ol start="3">
+<li>相关函数</li>
+</ol>
+<ul>
+<li>使用strings<a href="https://golang.google.cn/pkg/strings/" target="_blank" rel="noopener">标准库</a>提供的函数来进行各种字符串操作。</li>
+<li>调用内置函数len来获取一个字符串值的长度（此字符串中存储的字节数）。</li>
+<li>使用容器元素索引语法aString[i]来获取aString中的第i个字节。 表达式aString[i]是不可寻址的。换句话说，aString[i]不可被修改。</li>
+<li>使用子切片语法aString[start:end]来获取aString的一个子字符串。 这里，start（包括）和end（不包括）均为aString中存储的字节的下标。</li>
+</ul>
+<ol start="4">
+<li>字符串相关的类型转换</li>
+</ol>
+<ul>
+<li>一个字符串值可以被显式转换为一个字节切片（byte slice），反之亦然。 一个字节切片类型是一个元素类型为内置类型byte的切片类型。 或者说，一个字节切片类型的底层类型为[]byte（亦即[]uint8）。</li>
+<li>一个字符串值可以被显式转换为一个码点切片（rune slice），反之亦然。 一个码点切片类型是一个元素类型为内置类型rune的切片类型。 或者说，一个码点切片类型的底层类型为[]rune（亦即[]int32）。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/17/golang中字符串/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-go复习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -891,7 +1004,7 @@ var _hmt = _hmt || [];
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Baobaobao
+    		&copy; 2020 Baobaobao
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

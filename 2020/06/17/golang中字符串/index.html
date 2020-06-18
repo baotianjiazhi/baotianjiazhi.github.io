@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/7 | Bao的博客</title>
+  <title>golang中的字符串 | Bao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Bao的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2019/07/index.html">
+  <meta name="description" content="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https://github.com/golang101/golang101。 字符串在golang中的内部结构定义1234type _string struct &amp;#123;	elements *byte // 引用着底层的字节	len">
+<meta name="keywords" content="Go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="golang中的字符串">
+<meta property="og:url" content="http://yoursite.com/2020/06/17/golang中字符串/index.html">
 <meta property="og:site_name" content="Bao的博客">
+<meta property="og:description" content="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https://github.com/golang101/golang101。 字符串在golang中的内部结构定义1234type _string struct &amp;#123;	elements *byte // 引用着底层的字节	len">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-17T11:12:53.972Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bao的博客">
+<meta name="twitter:title" content="golang中的字符串">
+<meta name="twitter:description" content="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https://github.com/golang101/golang101。 字符串在golang中的内部结构定义1234type _string struct &amp;#123;	elements *byte // 引用着底层的字节	len">
   
     <link rel="alternative" href="/atom.xml" title="Bao的博客" type="application/atom+xml">
   
@@ -144,36 +149,74 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-golang中字符串" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/08/govendor/" class="archive-article-date">
-  	<time datetime="2019-07-08T03:22:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/08/govendor/">govendor</a>
+    <h1 class="article-title" itemprop="name">
+      golang中的字符串
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/06/17/golang中字符串/" class="archive-article-date">
+  	<time datetime="2020-06-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https-github-com-golang101-golang101。"><a href="#由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https-github-com-golang101-golang101。" class="headerlink" title="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https://github.com/golang101/golang101。"></a>由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：<a href="https://github.com/golang101/golang101。" target="_blank" rel="noopener">https://github.com/golang101/golang101。</a></h3><ol>
+<li>字符串在golang中的内部结构定义<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type _string struct &#123;</span><br><span class="line">	elements *byte // 引用着底层的字节</span><br><span class="line">	len      int   // 字符串中的字节数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>从这个声明来看，我们可以将一个字符串的内部定义看作为一个字节序列。 事实上，我们确实可以把一个字符串看作是一个元素类型为byte的     （且元素不可修改的）切片。</p>
+<ol start="2">
+<li>golang中字符串的一些小tips</li>
+</ol>
+<ul>
+<li>字符串值（和布尔以及各种数值类型的值）可以被用做常量。</li>
+<li>Go支持两种风格的字符串字面量表示形式：双引号风格（解释型字面表示）和反引号风格（直白字面表示）。</li>
+<li>字符串类型的零值为空字符串。一个空字符串在字面上可以用””或者``来表示。</li>
+<li>可以用运算符+和+=来衔接字符串。</li>
+<li>字符串类型都是可比较类型。同一个字符串类型的值可以用==和!=比较运算符来比较。 并且和整数/浮点数一样，同一个字符串类型的值也可以用&gt;、&lt;、&gt;=和&lt;=比较运算符来比较。 当比较两个字符串值的时候，它们的底层字节将逐一进行比较。如果一个字符串是另一个字符串的前缀，并且另一个字符串较长，则另一个字符串为两者中的较大者。</li>
+</ul>
+<blockquote>
+<p>和Java语言一样，字符串值的内容（即底层字节）是不可更改的。 字符串值的长度也是不可独立被更改的。 一个可寻址的字符串只能通过将另一个字符串赋值给它来整体修改它。</p>
+</blockquote>
+<ol start="3">
+<li>相关函数</li>
+</ol>
+<ul>
+<li>使用strings<a href="https://golang.google.cn/pkg/strings/" target="_blank" rel="noopener">标准库</a>提供的函数来进行各种字符串操作。</li>
+<li>调用内置函数len来获取一个字符串值的长度（此字符串中存储的字节数）。</li>
+<li>使用容器元素索引语法aString[i]来获取aString中的第i个字节。 表达式aString[i]是不可寻址的。换句话说，aString[i]不可被修改。</li>
+<li>使用子切片语法aString[start:end]来获取aString的一个子字符串。 这里，start（包括）和end（不包括）均为aString中存储的字节的下标。</li>
+</ul>
+<ol start="4">
+<li>字符串相关的类型转换</li>
+</ol>
+<ul>
+<li>一个字符串值可以被显式转换为一个字节切片（byte slice），反之亦然。 一个字节切片类型是一个元素类型为内置类型byte的切片类型。 或者说，一个字节切片类型的底层类型为[]byte（亦即[]uint8）。</li>
+<li>一个字符串值可以被显式转换为一个码点切片（rune slice），反之亦然。 一个码点切片类型是一个元素类型为内置类型rune的切片类型。 或者说，一个码点切片类型的底层类型为[]rune（亦即[]int32）。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -185,133 +228,106 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/17/golang中字符串/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/05/interface2/" class="archive-article-date">
-  	<time datetime="2019-07-05T01:29:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/08/go复习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">go复习_1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/05/interface2/">interface2</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/04/interface/" class="archive-article-date">
-  	<time datetime="2019-07-04T01:44:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/04/interface/">interface</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/02/intro/" class="archive-article-date">
-  	<time datetime="2019-07-02T02:39:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/02/intro/">intro</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">简介</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -334,8 +350,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
