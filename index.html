@@ -171,7 +171,7 @@ var _hmt = _hmt || [];
 <li>不想当足球教练的程序员不是个好篮球手。</li>
 <li>就读于三峡大学计算机信息学院</li>
 <li>Github: <a href="https://github.com/baotianjiazhi" target="_blank" rel="noopener">https://github.com/baotianjiazhi</a></li>
-<li>期望能入职成为一名后端/服务器工程师</li>
+<li>期望能入职成为一名后端/服务器工程师/深度学习算法工程师</li>
 </ul>
         
           <a class="article-more-a" href="/2019/07/02/intro/#more">more >></a>
@@ -233,6 +233,96 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-指针" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/19/指针/">golang指针</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/19/指针/" class="archive-article-date">
+  	<time datetime="2020-06-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="内存地址"><a href="#内存地址" class="headerlink" title="内存地址"></a>内存地址</h2><blockquote>
+<p>一个内存地址表示操作系统管理的整个内存的中一个偏移量（相对于从整个内存的起始，以字节计数）。</p>
+</blockquote>
+<p>内存地址的字面形式常用整数的十六进制字面量来表示，比如<code>0x1234CDEF</code>。</p>
+<h2 id="值的地址"><a href="#值的地址" class="headerlink" title="值的地址"></a>值的地址</h2><blockquote>
+<p>一个值的地址是指此值的直接部分占据的内存的起始地址。</p>
+</blockquote>
+<h2 id="如何获取一个指针值？"><a href="#如何获取一个指针值？" class="headerlink" title="如何获取一个指针值？"></a>如何获取一个指针值？</h2><p>有两种方式来得到一个指针值：</p>
+<ol>
+<li>我们可以用内置函数new来为任何类型的值开辟一块内存并将此内存块的起始地址做为此值的地址返回。 假设T是任一类型，则函数调用new(T)返回一个类型为*T的指针值。 存储在返回指针值所表示的地址处的值（可被看作是一个匿名变量）为T的零值。</li>
+<li>我们也可以使用前置取地址操作符&amp;来获取一个可寻址的值的地址。 对于一个类型为T的可寻址的值t，我们可以用&amp;t来取得它的地址。&amp;t的类型为*T。</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/19/指针/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-golang中字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -253,7 +343,7 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https-github-com-golang101-golang101。"><a href="#由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https-github-com-golang101-golang101。" class="headerlink" title="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https://github.com/golang101/golang101。"></a>由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：<a href="https://github.com/golang101/golang101。" target="_blank" rel="noopener">https://github.com/golang101/golang101。</a></h3><ol>
+        <h3 id="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https-github-com-golang101-golang101"><a href="#由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https-github-com-golang101-golang101" class="headerlink" title="由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：https://github.com/golang101/golang101"></a>由于疫情和论文的事情，好久没有更新过博客，趁着刷题和看论文的时间，把golang的知识点再整理一下，大部分内容转载于golang白皮书，GitHub地址为：<a href="https://github.com/golang101/golang101" target="_blank" rel="noopener">https://github.com/golang101/golang101</a></h3><ol>
 <li>字符串在golang中的内部结构定义<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type _string struct &#123;</span><br><span class="line">	elements *byte // 引用着底层的字节</span><br><span class="line">	len      int   // 字符串中的字节数</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
