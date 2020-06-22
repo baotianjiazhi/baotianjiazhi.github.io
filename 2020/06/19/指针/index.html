@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Bao的博客">
 <meta property="og:description" content="内存地址 一个内存地址表示操作系统管理的整个内存的中一个偏移量（相对于从整个内存的起始，以字节计数）。  内存地址的字面形式常用整数的十六进制字面量来表示，比如0x1234CDEF。 值的地址 一个值的地址是指此值的直接部分占据的内存的起始地址。  如何获取一个指针值？有两种方式来得到一个指针值：  我们可以用内置函数new来为任何类型的值开辟一块内存并将此内存块的起始地址做为此值的地址返回。 假">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-19T11:58:25.888Z">
+<meta property="og:updated_time" content="2020-06-20T11:53:03.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="golang指针">
 <meta name="twitter:description" content="内存地址 一个内存地址表示操作系统管理的整个内存的中一个偏移量（相对于从整个内存的起始，以字节计数）。  内存地址的字面形式常用整数的十六进制字面量来表示，比如0x1234CDEF。 值的地址 一个值的地址是指此值的直接部分占据的内存的起始地址。  如何获取一个指针值？有两种方式来得到一个指针值：  我们可以用内置函数new来为任何类型的值开辟一块内存并将此内存块的起始地址做为此值的地址返回。 假">
@@ -181,7 +181,13 @@ var _hmt = _hmt || [];
 <li>我们可以用内置函数new来为任何类型的值开辟一块内存并将此内存块的起始地址做为此值的地址返回。 假设T是任一类型，则函数调用new(T)返回一个类型为*T的指针值。 存储在返回指针值所表示的地址处的值（可被看作是一个匿名变量）为T的零值。</li>
 <li>我们也可以使用前置取地址操作符&amp;来获取一个可寻址的值的地址。 对于一个类型为T的可寻址的值t，我们可以用&amp;t来取得它的地址。&amp;t的类型为*T。</li>
 </ol>
+<h2 id="为什么需要指针"><a href="#为什么需要指针" class="headerlink" title="为什么需要指针"></a>为什么需要指针</h2><blockquote>
+<p>在Golang中所有的赋值操作（包括函数调用传参）过程都是一个值复制的过程</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func double(x int) &#123;</span><br><span class="line">	x += x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	var a = 3</span><br><span class="line">	double(a)</span><br><span class="line">	fmt.Println(a) // 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>所以需要使用指针，才能进行double操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func double(x *int) &#123;</span><br><span class="line">	*x += *x</span><br><span class="line">	x = nil // 此行仅为讲解目的</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	var a = 3</span><br><span class="line">	double(&amp;a)</span><br><span class="line">	fmt.Println(a) // 6</span><br><span class="line">	p := &amp;a</span><br><span class="line">	double(p)</span><br><span class="line">	fmt.Println(a, p == nil) // 12 false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -268,6 +274,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/06/22/结构体与反射/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          golang结构体和反射
+        
+      </div>
+    </a>
   
   
     <a href="/2020/06/17/golang中字符串/" id="article-nav-older" class="article-nav-link-wrap">

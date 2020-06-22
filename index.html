@@ -233,6 +233,98 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-结构体与反射" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/22/结构体与反射/">golang结构体和反射</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/22/结构体与反射/" class="archive-article-date">
+  	<time datetime="2020-06-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="结构体的定义"><a href="#结构体的定义" class="headerlink" title="结构体的定义"></a>结构体的定义</h2><p>每个非定义结构体类型的字面形式均由<code>struct</code>关键字开头，后面跟着用一对大括号<code>{}</code>，其中包裹着的一系列字段(field)声明。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct &#123;</span><br><span class="line">	title  string</span><br><span class="line">	author string</span><br><span class="line">	pages  int</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>一个结构体类型的尺寸为它的所有字段的（类型）尺寸之和加上一些填充字节的数目。 常常地，编译器（和运行时）会在一个结构体值的两个相邻字段之间填充一些字节来保证一些字段的地址总是某个整数的倍数。 我们可以在后面的内存布局一文中了解到字节填充（padding）和内存地址对齐（memory address alignment）。</p>
+</blockquote>
+<h2 id="反射的定义"><a href="#反射的定义" class="headerlink" title="反射的定义"></a>反射的定义</h2><p>一个接口值中存储的动态类型信息可以被用来检视此接口值的动态值和操纵此动态值所引用的值，这称为反射。</p>
+<h2 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h2><p>Golang中有四种接口相关的类型转换情形：</p>
+<ol>
+<li>将一个非接口值转换为一个接口类型。在这样的转换中，此非接口值的类型必须实现了此接口类型。</li>
+<li>将一个接口值转换为另一个接口类型（前者接口值的类型实现了后者目标接口类型）。</li>
+<li>将一个接口值转换为一个非接口类型（此非接口类型必须实现了此接口值的接口类型）。</li>
+<li>将一个接口值转换为另一个接口类型（前者接口值的类型未实现后者目标接口类型，但是前者的动态类型有可能实现了目标接口类型）</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/22/结构体与反射/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-指针" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -265,7 +357,13 @@ var _hmt = _hmt || [];
 <li>我们可以用内置函数new来为任何类型的值开辟一块内存并将此内存块的起始地址做为此值的地址返回。 假设T是任一类型，则函数调用new(T)返回一个类型为*T的指针值。 存储在返回指针值所表示的地址处的值（可被看作是一个匿名变量）为T的零值。</li>
 <li>我们也可以使用前置取地址操作符&amp;来获取一个可寻址的值的地址。 对于一个类型为T的可寻址的值t，我们可以用&amp;t来取得它的地址。&amp;t的类型为*T。</li>
 </ol>
+<h2 id="为什么需要指针"><a href="#为什么需要指针" class="headerlink" title="为什么需要指针"></a>为什么需要指针</h2><blockquote>
+<p>在Golang中所有的赋值操作（包括函数调用传参）过程都是一个值复制的过程</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func double(x int) &#123;</span><br><span class="line">	x += x</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	var a = 3</span><br><span class="line">	double(a)</span><br><span class="line">	fmt.Println(a) // 3</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>所以需要使用指针，才能进行double操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func double(x *int) &#123;</span><br><span class="line">	*x += *x</span><br><span class="line">	x = nil // 此行仅为讲解目的</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	var a = 3</span><br><span class="line">	double(&amp;a)</span><br><span class="line">	fmt.Println(a) // 6</span><br><span class="line">	p := &amp;a</span><br><span class="line">	double(p)</span><br><span class="line">	fmt.Println(a, p == nil) // 12 false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -991,99 +1089,10 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-flask-sqlalchemy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/31/flask-sqlalchemy/">Flask_SQLalchemy</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/31/flask-sqlalchemy/" class="archive-article-date">
-  	<time datetime="2019-05-31T08:22:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="SQLalchemy"><a href="#SQLalchemy" class="headerlink" title="SQLalchemy"></a>SQLalchemy</h1><p>之前做项目的时候是看的教程跟着一步一步做的，但是最近自己在做一个学生成绩管理系统的时候，发现Flask中的数据库流程忘记怎么做了，今天记录一下，以防不时之需。</p>
-<h2 id="1-Flask安装SQLalchemy"><a href="#1-Flask安装SQLalchemy" class="headerlink" title="1.Flask安装SQLalchemy"></a>1.Flask安装SQLalchemy</h2><p>flask本身并不支持数据库操作，所以需要借助于SQLalchemy这个ORM，ORM允许通过操作对象和属性来映射数据库中的表和字段。在cmd中的虚拟环境执行以下命令安装flask-sqlalchemy。</p>
-<blockquote>
-<p>(venv) $ pip install flask-sqlalchemy</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/05/31/flask-sqlalchemy/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">flask</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/31/flask-sqlalchemy/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
