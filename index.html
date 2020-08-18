@@ -146,61 +146,6 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-redis相关点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Redis相关知识点"><a href="#Redis相关知识点" class="headerlink" title="Redis相关知识点"></a>Redis相关知识点</h1><h2 id="远程连接Redis的设置"><a href="#远程连接Redis的设置" class="headerlink" title="远程连接Redis的设置"></a>远程连接Redis的设置</h2><ul>
-<li>首先找到服务器上的<code>redis.conf</code>，默认设置绑定本机的回环地址: bind 127.0.0.1，并且开启保护模式: protected-mode yes，这样的设置远程连接时，服务器会拒绝连接。</li>
-<li>修改配置文件中的bind 127.0.0.1 -&gt; bind 0.0.0.0 并且关闭保护模式：protected-mod no</li>
-<li>重启redis服务</li>
-<li>在客户端上可以通过redis-cli -h xxx.xxx.xxx.xxx -p 6379的方式进行连接</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/08/18/redis相关点/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/18/redis相关点/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-intro" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -259,6 +204,92 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/07/02/intro/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-redis相关点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/18/redis相关点/">redis</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/18/redis相关点/" class="archive-article-date">
+  	<time datetime="2020-08-18T01:44:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Redis相关知识点"><a href="#Redis相关知识点" class="headerlink" title="Redis相关知识点"></a>Redis相关知识点</h1><h2 id="远程连接Redis的设置"><a href="#远程连接Redis的设置" class="headerlink" title="远程连接Redis的设置"></a>远程连接Redis的设置</h2><ul>
+<li>首先找到服务器上的<code>redis.conf</code>，默认设置绑定本机的回环地址: bind 127.0.0.1，并且开启保护模式: protected-mode yes，这样的设置远程连接时，服务器会拒绝连接。</li>
+<li>修改配置文件中的bind 127.0.0.1 -&gt; bind 0.0.0.0 并且关闭保护模式：protected-mod no</li>
+<li>重启redis服务</li>
+<li>在客户端上可以通过redis-cli -h xxx.xxx.xxx.xxx -p 6379的方式进行连接</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/08/18/redis相关点/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/18/redis相关点/">展开全文 >></a>
         </p>
       
 
@@ -1195,6 +1226,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
             
             <div class="clearfix"></div>
