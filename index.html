@@ -233,6 +233,93 @@ var _hmt = _hmt || [];
 
 
   
+    <article id="post-linux运行级别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/19/linux运行级别/">linux运行级别</a>
+    </h1>
+  
+
+        
+        <a href="/2020/08/19/linux运行级别/" class="archive-article-date">
+  	<time datetime="2020-08-19T11:29:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux的运行级别"><a href="#Linux的运行级别" class="headerlink" title="Linux的运行级别"></a>Linux的运行级别</h1><ul>
+<li>运行级别0：系统停机状态，系统默认运行级别不能设为0，否则不能正常启动</li>
+<li>运行级别1：单用户工作状态，root权限，用于系统维护，禁止远程登陆</li>
+<li>运行级别2：多用户状态(没有NFS)</li>
+<li>运行级别3：完全的多用户状态(有NFS)，登陆后进入控制台命令行模式</li>
+<li>运行级别4：系统未使用，保留</li>
+<li>运行级别5：X11控制台，登陆后进入图形GUI模式</li>
+<li>运行级别6：系统正常关闭并重启，默认运行级别不能设为6，否则不能正常启动</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/08/19/linux运行级别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-redis相关点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -980,101 +1067,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/08/14/go-module的使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-govendor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/08/govendor/">govendor</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/08/govendor/" class="archive-article-date">
-  	<time datetime="2019-07-08T03:22:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Govendor的一点点使用"><a href="#Govendor的一点点使用" class="headerlink" title="Govendor的一点点使用"></a>Govendor的一点点使用</h1><p>之前做一些Go的小项目时，在GitHub上克隆的项目的依赖包都是自己一个一个<code>go get</code>下来的，后来发现别人的项目里都有一个<code>vendor</code>包，百度了一下发现是<code>Govendor</code>，即<code>Go</code>的包管理工具。(网上看的使用攻略都有点模棱两可，随便丢两个表上去，甚至不知道最基本的该怎么用)，再后来看了一个博主的<code>GIN</code>实践，里面使用了<code>Govendor</code>，才学会了基本使用方法。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><blockquote>
-<p>go get -u github.com/kardianos/govendor</p>
-</blockquote>
-<h1 id="生成vendor"><a href="#生成vendor" class="headerlink" title="生成vendor"></a>生成vendor</h1><blockquote>
-<p>govendor init</p>
-</blockquote>
-<p>该步骤会生成一个<code>vendor</code>文件夹，里面包含了<code>vendor.json</code>但是为空。</p>
-<h1 id="从本地添加依赖到vendor"><a href="#从本地添加依赖到vendor" class="headerlink" title="从本地添加依赖到vendor"></a>从本地添加依赖到vendor</h1><blockquote>
-<p>govendor add +e</p>
-</blockquote>
-<p>现在看到<code>vendor.json</code>中有相对应的本地依赖包，相对应的如果我们在<code>GitHub</code>上克隆别人的项目，对应的我们需要在项目的<code>vendor</code>文件夹下使用命令：</p>
-<blockquote>
-<p>govendor sync</p>
-</blockquote>
-<p>即可自动安装依赖包。</p>
-<h1 id="使用vendor注意事项"><a href="#使用vendor注意事项" class="headerlink" title="使用vendor注意事项"></a>使用vendor注意事项</h1><p>vendor所在的目录一定要在第一个GOPATH下</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/08/govendor/">展开全文 >></a>
         </p>
       
 
