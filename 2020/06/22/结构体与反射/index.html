@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Bao的博客">
 <meta property="og:description" content="结构体的定义每个非定义结构体类型的字面形式均由struct关键字开头，后面跟着用一对大括号{}，其中包裹着的一系列字段(field)声明。 12345struct &amp;#123;	title  string	author string	pages  int&amp;#125;   一个结构体类型的尺寸为它的所有字段的（类型）尺寸之和加上一些填充字节的数目。 常常地，编译器（和运行时）会在一个结构体值的两个相">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-22T13:43:10.332Z">
+<meta property="og:updated_time" content="2020-09-10T07:05:12.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="golang结构体和反射">
 <meta name="twitter:description" content="结构体的定义每个非定义结构体类型的字面形式均由struct关键字开头，后面跟着用一对大括号{}，其中包裹着的一系列字段(field)声明。 12345struct &amp;#123;	title  string	author string	pages  int&amp;#125;   一个结构体类型的尺寸为它的所有字段的（类型）尺寸之和加上一些填充字节的数目。 常常地，编译器（和运行时）会在一个结构体值的两个相">
@@ -183,6 +183,7 @@ var _hmt = _hmt || [];
 <li>将一个接口值转换为一个非接口类型（此非接口类型必须实现了此接口值的接口类型）。</li>
 <li>将一个接口值转换为另一个接口类型（前者接口值的类型未实现后者目标接口类型，但是前者的动态类型有可能实现了目标接口类型）</li>
 </ol>
+<h1 id="type-name和type-kind"><a href="#type-name和type-kind" class="headerlink" title="type name和type kind"></a>type name和type kind</h1><p>在反射中关于类型还划分为两种：<code>类型（Type）</code>和<code>种类（Kind）</code>。因为在Go语言中我们可以使用type关键字构造很多自定义类型，而种类（Kind）就是指<code>底层的类型</code>，在反射中，当需要区分指针、结构体等大品种的类型时，就会用到种类（Kind）。</p>
 
       
 
@@ -437,6 +438,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
             
             <div class="clearfix"></div>

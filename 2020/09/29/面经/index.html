@@ -6,20 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>interface2 | Bao的博客</title>
+  <title>Bao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Go语言中的interface(2)类型转换类型判断可将接口变量还原为原始类型，或用来判断是否实现了某个更具体的接口类型。 12345678910111213141516171819202122type data intfunc(d data) String() string &amp;#123;	return fmt.Sprintf(&amp;quot;data: %d&amp;quot;, d)&amp;#125;func">
-<meta name="keywords" content="go">
+  <meta name="description" content="进程、线程、协程进程是系统资源分配的基本单位，线程是系统调度的基本单位，协程，英文Coroutines，是一种比线程更加轻量级的存在。正如一个进程可以拥有多个线程一样，一个线程也可以拥有多个协程。  进程、线程、协程的对比：  协程既不是进程也不是线程，协程仅仅是一个特殊的函数，协程、线程和进程不是一个维度的。 一个进程可以包含多个线程，一个线程可以包含多个协程。 一个线程内的多个协程虽然可以切换">
 <meta property="og:type" content="article">
-<meta property="og:title" content="interface2">
-<meta property="og:url" content="http://yoursite.com/2019/07/05/interface2/index.html">
+<meta property="og:title" content="Bao的博客">
+<meta property="og:url" content="http://yoursite.com/2020/09/29/面经/index.html">
 <meta property="og:site_name" content="Bao的博客">
-<meta property="og:description" content="Go语言中的interface(2)类型转换类型判断可将接口变量还原为原始类型，或用来判断是否实现了某个更具体的接口类型。 12345678910111213141516171819202122type data intfunc(d data) String() string &amp;#123;	return fmt.Sprintf(&amp;quot;data: %d&amp;quot;, d)&amp;#125;func">
+<meta property="og:description" content="进程、线程、协程进程是系统资源分配的基本单位，线程是系统调度的基本单位，协程，英文Coroutines，是一种比线程更加轻量级的存在。正如一个进程可以拥有多个线程一样，一个线程也可以拥有多个协程。  进程、线程、协程的对比：  协程既不是进程也不是线程，协程仅仅是一个特殊的函数，协程、线程和进程不是一个维度的。 一个进程可以包含多个线程，一个线程可以包含多个协程。 一个线程内的多个协程虽然可以切换">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-17T02:23:29.720Z">
+<meta property="og:image" content="c:%5CUsers%5Cbao%5CDesktop%5Cword%5Cgolang%5C%E9%9D%A2%E7%BB%8F%5C%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B.jpg">
+<meta property="og:image" content="c:%5CUsers%5Cbao%5CDesktop%5Cword%5Cgolang%5C%E9%9D%A2%E7%BB%8F%5C%E6%8E%92%E5%BA%8F.jpg">
+<meta property="og:image" content="https://img-blog.csdn.net/20171209135846780?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGxnMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://img-blog.csdn.net/20171209142610819?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGxnMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="c:%5CUsers%5Cbao%5CDesktop%5Cword%5Cgolang%5C%E9%9D%A2%E7%BB%8F%5CLRU%E9%80%BB%E8%BE%91%E5%9B%BE.jpg">
+<meta property="og:image" content="c:%5CUsers%5Cbao%5CDesktop%5Cword%5Cgolang%5C%E9%9D%A2%E7%BB%8F%5C%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C.jpg">
+<meta property="og:updated_time" content="2020-09-28T08:02:53.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="interface2">
-<meta name="twitter:description" content="Go语言中的interface(2)类型转换类型判断可将接口变量还原为原始类型，或用来判断是否实现了某个更具体的接口类型。 12345678910111213141516171819202122type data intfunc(d data) String() string &amp;#123;	return fmt.Sprintf(&amp;quot;data: %d&amp;quot;, d)&amp;#125;func">
+<meta name="twitter:title" content="Bao的博客">
+<meta name="twitter:description" content="进程、线程、协程进程是系统资源分配的基本单位，线程是系统调度的基本单位，协程，英文Coroutines，是一种比线程更加轻量级的存在。正如一个进程可以拥有多个线程一样，一个线程也可以拥有多个协程。  进程、线程、协程的对比：  协程既不是进程也不是线程，协程仅仅是一个特殊的函数，协程、线程和进程不是一个维度的。 一个进程可以包含多个线程，一个线程可以包含多个协程。 一个线程内的多个协程虽然可以切换">
+<meta name="twitter:image" content="c:%5CUsers%5Cbao%5CDesktop%5Cword%5Cgolang%5C%E9%9D%A2%E7%BB%8F%5C%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Bao的博客" type="application/atom+xml">
   
@@ -149,32 +155,168 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-interface2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-面经" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      interface2
-    </h1>
-  
-
-        
-        <a href="/2019/07/05/interface2/" class="archive-article-date">
-  	<time datetime="2019-07-05T01:29:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Go语言中的interface-2"><a href="#Go语言中的interface-2" class="headerlink" title="Go语言中的interface(2)"></a>Go语言中的interface(2)</h1><h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><p>类型判断可将接口变量还原为原始类型，或用来判断是否实现了某个更具体的接口类型。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">type data int</span><br><span class="line"></span><br><span class="line">func(d data) String() string &#123;</span><br><span class="line">	return fmt.Sprintf(&quot;data: %d&quot;, d)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	</span><br><span class="line">	var d data = 15</span><br><span class="line">	var x interface&#123;&#125; = d</span><br><span class="line"></span><br><span class="line">	if n, ok := x.(fmt.Stringer);ok &#123;</span><br><span class="line">		fmt.Println(n)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	if d2, ok := x.(data); ok &#123; 	// 转换为原始类型</span><br><span class="line">		fmt.Println(d2)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	e := x.(error)</span><br><span class="line">	fmt.Println(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="进程、线程、协程"><a href="#进程、线程、协程" class="headerlink" title="进程、线程、协程"></a>进程、线程、协程</h1><p>进程是系统资源分配的基本单位，线程是系统调度的基本单位，协程，英文Coroutines，是一种比线程更加轻量级的存在。正如一个进程可以拥有多个线程一样，一个线程也可以拥有多个协程。</p>
+<p><img src="C:%5CUsers%5Cbao%5CDesktop%5Cword%5Cgolang%5C%E9%9D%A2%E7%BB%8F%5C%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B.jpg" alt="img"></p>
+<p>进程、线程、协程的对比：</p>
+<ul>
+<li>协程既不是进程也不是线程，协程仅仅是一个特殊的函数，协程、线程和进程不是一个维度的。</li>
+<li>一个进程可以包含多个线程，一个线程可以包含多个协程。</li>
+<li>一个线程内的多个协程虽然可以切换，但是多个协程是串行执行的，只能在一个线程内运行，没法利用CPU多核能力。</li>
+<li>协程与进程一样，切换是存在上下文切换问题的。</li>
+</ul>
+<p>上下文切换：</p>
+<ul>
+<li><p>进程的切换者是操作系统，切换时机是根据操作系统自己的切换策略，用户是无感知的。进程的切换内容包括页全局目录、内核栈、硬件上下文，切换内容保存在内存中。进程切换过程是由“用户态到内核态到用户态”的方式，切换效率低。</p>
+</li>
+<li><p>线程的切换者是操作系统，切换时机是根据操作系统自己的切换策略，用户无感知。线程的切换内容包括内核栈和硬件上下文。线程切换内容保存在内核栈中。线程切换过程是由“用户态到内核态到用户态”， 切换效率中等。</p>
+</li>
+<li><p>协程的切换者是用户（编程者或应用程序），切换时机是用户自己的程序所决定的。协程的切换内容是硬件上下文，切换内存保存在用户自己的变量（用户栈或堆）中。协程的切换过程只有用户态，即没有陷入内核态，因此切换效率高。</p>
+</li>
+</ul>
+<h1 id="排序时间复杂度"><a href="#排序时间复杂度" class="headerlink" title="排序时间复杂度"></a>排序时间复杂度</h1><p><img src="C:%5CUsers%5Cbao%5CDesktop%5Cword%5Cgolang%5C%E9%9D%A2%E7%BB%8F%5C%E6%8E%92%E5%BA%8F.jpg" alt="imp"></p>
+<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="Mysql的四种隔离级别"><a href="#Mysql的四种隔离级别" class="headerlink" title="Mysql的四种隔离级别"></a>Mysql的四种隔离级别</h2><p>SQL标准定义了4类隔离级别，包括了一些具体规则，用来限定事务内外的哪些改变是可见的，哪些是不可见的。低级别的隔离级一般支持更高的并发处理，并拥有更低的系统开销。</p>
+<h3 id="Read-Uncommitted（读取未提交内容"><a href="#Read-Uncommitted（读取未提交内容" class="headerlink" title="Read Uncommitted（读取未提交内容)"></a>Read Uncommitted（读取未提交内容)</h3><p>在该隔离级别，所有事务都可以看到其他未提交事务的执行结果。本隔离级别很少用于实际应用，因为它的性能也不比其他级别好多少。读取未提交的数据，也被称之为脏读（Dirty Read）。</p>
+<h3 id="Read-Committed（读取提交内容）"><a href="#Read-Committed（读取提交内容）" class="headerlink" title="Read Committed（读取提交内容）"></a>Read Committed（读取提交内容）</h3><p>这是大多数数据库系统的默认隔离级别（但不是MySQL默认的）。它满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变。这种隔离级别 也支持所谓的不可重复读（Nonrepeatable Read），因为同一事务的其他实例在该实例处理其间可能会有新的commit，所以同一select可能返回不同结果。</p>
+<h3 id="Repeatable-Read（可重读）"><a href="#Repeatable-Read（可重读）" class="headerlink" title="Repeatable Read（可重读）"></a>Repeatable Read（可重读）</h3><p>这是MySQL的默认事务隔离级别，它确保同一事务的多个实例在并发读取数据时，会看到同样的数据行。不过理论上，这会导致另一个棘手的问题：幻读 （Phantom Read）。简单的说，幻读指当用户读取某一范围的数据行时，另一个事务又在该范围内插入了新行，当用户再读取该范围的数据行时，会发现有新的“幻影” 行。InnoDB和Falcon存储引擎通过多版本并发控制（MVCC，Multiversion Concurrency Control）机制解决了该问题。</p>
+<h3 id="Serializable（可串行化）"><a href="#Serializable（可串行化）" class="headerlink" title="Serializable（可串行化）"></a>Serializable（可串行化）</h3><p>这是最高的隔离级别，它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之，它是在每个读的数据行上加上共享锁。在这个级别，可能导致大量的超时现象和锁竞争。</p>
+<h2 id="联表查询"><a href="#联表查询" class="headerlink" title="联表查询"></a>联表查询</h2><p><strong>内连接</strong>：</p>
+<p>说明：组合两个表中的记录，返回关联字段相符的记录，也就是返回两个表的交集（阴影）部分。</p>
+<p><img src="https://img-blog.csdn.net/20171209135846780?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGxnMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p><strong>左连接（左外连接）</strong>:</p>
+<p>left join 是left outer join的简写，它的全称是左外连接，是外连接中的一种。</p>
+<p>左(外)连接，左表(a_table)的记录将会全部表示出来，而右表(b_table)只会显示符合搜索条件的记录。右表记录不足的地方均为NULL。</p>
+<p><img src="https://img-blog.csdn.net/20171209142610819?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcGxnMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p>
+<h2 id="MySQL的存储引擎–MyISAM和InnoDB的区别"><a href="#MySQL的存储引擎–MyISAM和InnoDB的区别" class="headerlink" title="MySQL的存储引擎–MyISAM和InnoDB的区别"></a>MySQL的存储引擎–MyISAM和InnoDB的区别</h2><ol>
+<li>InnoDB 支持事务，MyISAM 不支持事务。这是 MySQL 将默认存储引擎从 MyISAM 变成 InnoDB 的重要原因之一；</li>
+<li>InnoDB 支持外键，而 MyISAM 不支持。对一个包含外键的 InnoDB 表转为 MYISAM 会失败；</li>
+<li>InnoDB 是聚集索引，MyISAM 是非聚集索引。聚簇索引的文件存放在主键索引的叶子节点上，因此 InnoDB 必须要有主键，通过主键索引效率很高。但是辅助索引需要两次查询，先查询到主键，然后再通过主键查询到数据。因此，主键不应该过大，因为主键太大，其他索引也都会很大。而 MyISAM 是非聚集索引，数据文件是分离的，索引保存的是数据文件的指针。主键索引和辅助索引是独立的。</li>
+<li>InnoDB 不保存表的具体行数，执行 select count(*) from table 时需要全表扫描。而MyISAM 用一个变量保存了整个表的行数，执行上述语句时只需要读出该变量即可，速度很快；</li>
+<li>InnoDB 最小的锁粒度是行锁，MyISAM 最小的锁粒度是表锁。一个更新语句会锁住整张表，导致其他查询和更新都会被阻塞，因此并发访问受限。这也是 MySQL 将默认存储引擎从 MyISAM 变成 InnoDB 的重要原因之一；</li>
+</ol>
+<h1 id="谈谈分布式缓存"><a href="#谈谈分布式缓存" class="headerlink" title="谈谈分布式缓存"></a>谈谈分布式缓存</h1><p>第一次请求时将一些耗时操作的结果暂存，以后遇到相同的请求，直接返回暂存的数据。我想这是大部分童鞋对于缓存的理解。在计算机系统中，缓存无处不在，比如我们访问一个网页，网页和引用的 JS/CSS 等静态文件，根据不同的策略，会缓存在浏览器本地或是 CDN 服务器，那在第二次访问的时候，就会觉得网页加载的速度快了不少；比如微博的点赞的数量，不可能每个人每次访问，都从数据库中查找所有点赞的记录再统计，数据库的操作是很耗时的，很难支持那么大的流量，所以一般点赞这类数据是缓存在 Redis 服务集群中的。</p>
+<p>GeeCache 基本上模仿了 <a href="https://github.com/golang/groupcache" target="_blank" rel="noopener">groupcache</a> 的实现，为了将代码量限制在 500 行左右（groupcache 约 3000 行），裁剪了部分功能。但总体实现上，还是与 groupcache 非常接近的。支持特性有：</p>
+<ul>
+<li><p>单机缓存和基于 HTTP 的分布式缓存</p>
+</li>
+<li><p>最近最少访问(Least Recently Used, LRU) 缓存策略</p>
+</li>
+<li><p>使用 Go 锁机制防止缓存击穿</p>
+</li>
+<li><p>使用一致性哈希选择节点，实现负载均衡</p>
+</li>
+<li><p>使用 protobuf 优化节点间二进制通信</p>
+</li>
+</ul>
+<h3 id="1-2-LFU-Least-Frequently-Used"><a href="#1-2-LFU-Least-Frequently-Used" class="headerlink" title="1.2 LFU(Least Frequently Used)"></a>1.2 LFU(Least Frequently Used)</h3><p>最少使用，也就是淘汰缓存中访问频率最低的记录。LFU 认为，如果数据过去被访问多次，那么将来被访问的频率也更高。LFU 的实现需要维护一个按照访问次数排序的队列，每次访问，访问次数加1，队列重新排序，淘汰时选择访问次数最少的即可。LFU 算法的命中率是比较高的，但缺点也非常明显，维护每个记录的访问次数，对内存的消耗是很高的；另外，如果数据的访问模式发生变化，LFU 需要较长的时间去适应，也就是说 LFU 算法受历史数据的影响比较大。例如某个数据历史上访问次数奇高，但在某个时间点之后几乎不再被访问，但因为历史访问次数过高，而迟迟不能被淘汰。</p>
+<h3 id="1-3-LRU-Least-Recently-Used"><a href="#1-3-LRU-Least-Recently-Used" class="headerlink" title="1.3 LRU(Least Recently Used)"></a>1.3 LRU(Least Recently Used)</h3><p>最近最少使用，相对于仅考虑时间因素的 FIFO 和仅考虑访问频率的 LFU，LRU 算法可以认为是相对平衡的一种淘汰算法。LRU 认为，如果数据最近被访问过，那么将来被访问的概率也会更高。LRU 算法的实现非常简单，维护一个队列，如果某条记录被访问了，则移动到队尾，那么队首则是最近最少访问的数据，淘汰该条记录即可。</p>
+<p><img src="C:%5CUsers%5Cbao%5CDesktop%5Cword%5Cgolang%5C%E9%9D%A2%E7%BB%8F%5CLRU%E9%80%BB%E8%BE%91%E5%9B%BE.jpg" alt="img"></p>
+<p>这张图很好地表示了 LRU 算法最核心的 2 个数据结构</p>
+<ul>
+<li><p>绿色的是字典(map)，存储键和值的映射关系。这样根据某个键(key)查找对应的值(value)的复杂是O(1)，在字典中插入一条记录的复杂度也是O(1)。</p>
+</li>
+<li><p>红色的是双向链表(double linked list)实现的队列。将所有的值放到双向链表中，这样，当访问到某个值时，将其移动到队尾的复杂度是O(1)，在队尾新增一条记录以及删除一条记录的复杂度均为O(1)。</p>
+</li>
+</ul>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><ol>
+<li><strong>缓存雪崩</strong>：缓存在同一时刻全部失效，造成瞬时DB请求量大、压力骤增，引起雪崩。常因为缓存服务器宕机，或缓存设置了相同的过期时间引起。</li>
+<li><strong>缓存击穿</strong>：一个存在的key，在缓存过期的一刻，同时有大量的请求，这些请求都会击穿到 DB ，造成瞬时DB请求量大、压力骤增。</li>
+<li><strong>缓存穿透</strong>：查询一个不存在的数据，因为不存在则不会写到缓存中，所以每次都会去请求 DB，如果瞬间流量过大，穿透到 DB，导致宕机。</li>
+</ol>
+<h2 id="分布式访问"><a href="#分布式访问" class="headerlink" title="分布式访问"></a>分布式访问</h2><p>​    对于分布式缓存来说，当一个节点接收到请求，如果该节点并没有存储缓存值，那么它面临的难题是，从谁那获取数据？自己，还是节点1, 2, 3, 4… 。假设包括自己在内一共有 10 个节点，当一个节点接收到请求时，随机选择一个节点，由该节点从数据源获取数据。</p>
+<p>​    假设第一次随机选取了节点 1 ，节点 1 从数据源获取到数据的同时缓存该数据；那第二次，只有 1/10 的可能性再次选择节点 1, 有 9/10 的概率选择了其他节点，如果选择了其他节点，就意味着需要再一次从数据源获取数据，一般来说，这个操作是很耗时的。这样做，一是缓存效率低，二是各个节点上存储着相同的数据，浪费了大量的存储空间。</p>
+<h2 id="一致性哈希"><a href="#一致性哈希" class="headerlink" title="一致性哈希"></a>一致性哈希</h2><h3 id="2-1-步骤"><a href="#2-1-步骤" class="headerlink" title="2.1 步骤"></a>2.1 步骤</h3><p>一致性哈希算法将 key 映射到 2^32 的空间中，将这个数字首尾相连，形成一个环。</p>
+<p><img src="C:%5CUsers%5Cbao%5CDesktop%5Cword%5Cgolang%5C%E9%9D%A2%E7%BB%8F%5C%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C.jpg" alt="img"></p>
+<ul>
+<li>计算节点/机器(通常使用节点的名称、编号和 IP 地址)的哈希值，放置在环上。</li>
+<li>计算 key 的哈希值，放置在环上，顺时针寻找到的第一个节点，就是应选取的节点/机器。</li>
+</ul>
+<h3 id="2-2-数据倾斜问题"><a href="#2-2-数据倾斜问题" class="headerlink" title="2.2 数据倾斜问题"></a>2.2 数据倾斜问题</h3><p>如果服务器的节点过少，容易引起 key 的倾斜。例如上面例子中的 peer2，peer4，peer6 分布在环的上半部分，下半部分是空的。那么映射到环下半部分的 key 都会被分配给 peer2，key 过度向 peer2 倾斜，缓存节点间负载不均。</p>
+<p>为了解决这个问题，引入了虚拟节点的概念，一个真实节点对应多个虚拟节点。</p>
+<p>假设 1 个真实节点对应 3 个虚拟节点，那么 peer1 对应的虚拟节点是 peer1-1、 peer1-2、 peer1-3（通常以添加编号的方式实现），其余节点也以相同的方式操作。</p>
+<ul>
+<li>第一步，计算虚拟节点的 Hash 值，放置在环上。</li>
+<li>第二步，计算 key 的 Hash 值，在环上顺时针寻找到应选取的虚拟节点，例如是 peer2-1，那么就对应真实节点 peer2。</li>
+</ul>
+<p>虚拟节点扩充了节点的数量，解决了节点较少的情况下数据容易倾斜的问题。而且代价非常小，只需要增加一个字典(map)维护真实节点与虚拟节点的映射关系即可。</p>
+<h2 id="Protobuf"><a href="#Protobuf" class="headerlink" title="Protobuf"></a>Protobuf</h2><blockquote>
+<p>protobuf即 Protocol Buffers, Google 开发的一种数据描述语言，是一种轻便高效的结构化数据存储格式，与语言、平台无关，可扩展可序列化。protobuf以二进制方式存储，占空间小</p>
+</blockquote>
+<h2 id="分布式节点"><a href="#分布式节点" class="headerlink" title="分布式节点"></a>分布式节点</h2><h1 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h1><p>中断向量：中断的地址的变量；</p>
+<p>中断向量表：中断类型号与相应中断源的<code>中断处理程序入口地址</code>之间的连接表；</p>
+<p>中断服务程序：发送中断时所执行的中断代码</p>
+<h1 id="进程通信方式"><a href="#进程通信方式" class="headerlink" title="进程通信方式"></a>进程通信方式</h1><p>Linux下进程通信的八种方法：<code>管道(pipe)</code>，<code>命名管道(FIFO)</code>，<code>内存映射(mapped memeory)</code>，<code>消息队列(message queue)</code>，<code>共享内存(shared memory)</code>，<code>信号量(semaphore)</code>，<code>信号(signal)</code>，<code>套接字(Socket)</code></p>
+<ol>
+<li><p>管道(pipe): 管道允许一个进程和另一个与它有共同祖先的进程之间进行通信；</p>
+<p>管道的特点：（1）半双工（2）只能用于有共同祖先的进程（3）特殊的文件，可以进行读写，但只存在于内存中</p>
+</li>
+<li><p>命名管道（FIFO）：类似于管道，但是可以用于任意两个进程之间的通信</p>
+</li>
+<li><p>内存映射（mapped memory）: 内存映射允许多个进程间进行通信，每一个使用该机制的进程通过把一个共享的文件映射到自己的进程地址空间来实现它</p>
+</li>
+<li><p>信号</p>
+</li>
+<li><p>信号量(semaphore):主要用于进程间以及同进程的线程间进行同步</p>
+</li>
+<li><p>共享内存（shared memory）：可以使得多个进程访问同一块内存空间，是最快的可用IPC形式。往往和其他通信机制共同使用，如结合信号量进行使用，以达到进程间的同步及互斥</p>
+</li>
+<li><p>消息队列（message queue）：消息队列是消息的连接表，包括POSIX消息对和System V消息队列。有足够权限的进程可以向队列中添加消息，被赋予读权限的进程则可以读走队列中的消息。消息队列克服了信号承载信息量少，管道只能成该无格式字节流以及缓冲区大小受限等缺点；</p>
+<p>消息队列的特点：（1）消息队列是面向记录的，其中的消息具有特定的格式以及特定的优先级（2）消息队列独立于发送与接收进程。进程中止时，消息队列及其内容并不会被删除（3）消息队列可以实现消息的随机查询，消息不一定要以先进先出的次序读取，也可以按消息的类型读取</p>
+</li>
+<li><p>套接字（socket）：更为通用的进程间通信机制，可以用于不同机器之间的进程进行通信</p>
+</li>
+</ol>
+<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="支持的数据类型"><a href="#支持的数据类型" class="headerlink" title="支持的数据类型"></a>支持的数据类型</h2><ol>
+<li>String</li>
+<li>List</li>
+<li>集合</li>
+<li>有序集合</li>
+<li>哈希</li>
+</ol>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt; set name codehole</span><br><span class="line">&gt; get name</span><br><span class="line">&gt; exists name</span><br><span class="line">&gt; del name</span><br><span class="line">&gt; mget name1 name2 name3 // 批量读</span><br><span class="line">&gt; mset name1 bao name2 li name3 lv // 批量写</span><br><span class="line">&gt; expire name 5 // 5s后过期</span><br><span class="line">&gt; setex name 5 bao // 同时设置String的值和过期时间</span><br><span class="line">&gt; setnx name bao // 如果存在就不设置</span><br><span class="line">&gt; incr age // 自增1</span><br><span class="line">&gt; incrby age -5 // 减5</span><br></pre></td></tr></table></figure>
 
-<p>还可以使用<code>switch</code>语句在多种类型间做出推断匹配，这样空接口就有更多的发挥空间。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	var x interface&#123;&#125; = func(x int) string &#123;</span><br><span class="line">		return fmt.Sprintf(&quot;d: %d&quot;, x)	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	switch v := x.(type) &#123;</span><br><span class="line">	case nil:</span><br><span class="line">		println(&quot;nil&quot;)</span><br><span class="line">	case *int:</span><br><span class="line">		println(*v)</span><br><span class="line">	case func(int) string：</span><br><span class="line">		println(v(100))</span><br><span class="line">	case fmt.Stringer:</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	default:</span><br><span class="line">		println(&quot;unknow&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>​    Redis 的列表相当于 Java 语言里面的 LinkedList，注意它是<code>链表</code>而不是<code>数组</code>。这意味着list 的插入和删除操作非常快，时间复杂度为 O(1)，但是索引定位很慢，时间复杂度为O(n)。</p>
+<p>​    当列表弹出最后一个元素之后，该数据结构会被自动删除并回收内存。</p>
+<p>​    Redis的列表通常被当作异步队列来使用。将需要延后处理的任务结构体序列化为字符串塞进Redis的列表，另一个线程从这个列表中轮询数据进行处理。</p>
+<p><strong>右边进左边出：队列</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush books python java golang</span><br><span class="line">&gt; llen books</span><br><span class="line">&gt; lpop books</span><br><span class="line">&quot;python&quot;</span><br><span class="line">&gt; lpop books</span><br><span class="line">&quot;java&quot;</span><br></pre></td></tr></table></figure>
 
+<p><strong>右边进右边出：栈</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; rpush books python java golang</span><br><span class="line">&gt; rpop books</span><br><span class="line">&quot;golang&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>慢操作</strong></p>
+<p>lindex 相当于 Java 链表的 get(int index)方法，它需要对链表进行遍历，性能随着参数index 增大而变差。 ltrim 和字面上的含义不太一样，个人觉得它叫 lretain(保留) 更合适一些，因为 ltrim 跟的两个参数 start_index 和 end_index 定义了一个区间，在这个区间内的值，ltrim 要保留，区间之外统统砍掉。我们可以通过 ltrim 来实现一个定长的链表，这一点非常有用。index 可以为负数，index=-1 表示倒数第一个元素，同样 index=-2 表示倒数第二个元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; lrange books 0 -1 // 遍历</span><br><span class="line">&gt; lindex books 1 // 时间复杂度为O(n)</span><br></pre></td></tr></table></figure>
+
+<h1 id="利用Docker进行部署"><a href="#利用Docker进行部署" class="headerlink" title="利用Docker进行部署"></a>利用Docker进行部署</h1><ol>
+<li>编写Dockerfile</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">FROM golang:alpine</span><br><span class="line"></span><br><span class="line"># 为我们的镜像设置必要的环境变量</span><br><span class="line">ENV GO111MODULE=on \</span><br><span class="line">    CGO_ENABLED=0 \</span><br><span class="line">    GOODS=linux\</span><br><span class="line">    GOARCH=amd64</span><br><span class="line"></span><br><span class="line"># 移动到工作目录: /build</span><br><span class="line">WORKDIR /build</span><br><span class="line"></span><br><span class="line"># 将代码复制到容器中</span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line"># 将我们的代码编译成二进制可执行文件app</span><br><span class="line">RUN go build -o app .</span><br><span class="line"></span><br><span class="line"># 声明服务端口</span><br><span class="line">EXPOSE 8888</span><br><span class="line"></span><br><span class="line"># 启动容器时运行的命令</span><br><span class="line">CMD [&quot;/build/app&quot;]</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p><code>docker build . -t web_app</code></p>
+</li>
+<li><p><code>docker run -p 8888:8888 goweb_app</code> 将docker系统的8888映射到操作系统的端口8888</p>
+</li>
+<li><p>又因为我们的项目中使用了MySQL，我们可以选择使用如下命令启动一个MySQL容器，它的别名为<code>mysql8019</code>；root用户的密码为<code>root1234</code>；挂载容器中的<code>/var/lib/mysql</code>到本地的<code>/Users/q1mi/docker/mysql</code>目录；内部服务端口为3306，映射到外部的13306端口。</p>
+<p><code>docker run --name mysql8019 -p 13306:3306 -e MYSQL_ROOT_PASSWORD=root1234 -v /Users/q1mi/docker/mysql:/var/lib/mysql -d mysql:8.0.19</code></p>
+</li>
+<li><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --link=mysql8019:mysql8019 -p 8888:8888 bluebell_app</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">FROM golang:alpine AS builder</span><br><span class="line"></span><br><span class="line"># 为我们的镜像设置必要的环境变量</span><br><span class="line">ENV GO111MODULE=on \</span><br><span class="line">    CGO_ENABLED=0 \</span><br><span class="line">    GOOS=linux \</span><br><span class="line">    GOARCH=amd64</span><br><span class="line"></span><br><span class="line"># 移动到工作目录：/build</span><br><span class="line">WORKDIR /build</span><br><span class="line"></span><br><span class="line"># 复制项目中的 go.mod 和 go.sum文件并下载依赖信息</span><br><span class="line">COPY go.mod .</span><br><span class="line">COPY go.sum .</span><br><span class="line">RUN go mod download</span><br><span class="line"></span><br><span class="line"># 将代码复制到容器中</span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line"># 将我们的代码编译成二进制可执行文件 bubble</span><br><span class="line">RUN go build -o bubble .</span><br><span class="line"></span><br><span class="line">###################</span><br><span class="line"># 接下来创建一个小镜像</span><br><span class="line">###################</span><br><span class="line">FROM scratch</span><br><span class="line"></span><br><span class="line">COPY ./templates /templates</span><br><span class="line">COPY ./static /static</span><br><span class="line">COPY ./conf /conf</span><br><span class="line"></span><br><span class="line"># 从builder镜像中把/dist/app 拷贝到当前目录</span><br><span class="line">COPY --from=builder /build/bluebell /</span><br><span class="line"></span><br><span class="line"># 需要运行的命令</span><br><span class="line">ENTRYPOINT [&quot;/bluebell&quot;, &quot;conf/app.ini&quot;]</span><br></pre></td></tr></table></figure>
+
+<h1 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h1><ul>
+<li>对称加密: 加密和解密的秘钥使用的是同一个.</li>
+<li>非对称加密: 与对称加密算法不同，非对称加密算法需要两个密钥：公开密钥（publickey）和私有密钥（privatekey）。</li>
+</ul>
+<p><strong>对称加密算法:</strong> 密钥较短，破译困难，除了数据加密标准（DES），另一个对称密钥加密系统是国际数据加密算法（IDEA），它比DES的加密性好，且对计算机性能要求也没有那么高.</p>
+<p><strong>非对称加密算法:</strong> 公开密钥与私有密钥是一对，如果用公开密钥对数据进行加密，只有用对应的私有密钥才能解密；如果用私有密钥对数据进行加密，那么只有用对应的公开密钥才能解密。因为加密和解密使用的是两个不同的密钥，所以这种算法叫作非对称加密算法。</p>
 
       
 
@@ -182,23 +324,7 @@ var _hmt = _hmt || [];
     </div>
     <div class="article-info article-info-index">
       
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
       
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -249,7 +375,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/05/interface2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/29/面经/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,18 +389,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/07/08/govendor/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/10/01/MySQL/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          govendor
+          MySQL
         
       </div>
     </a>
   
   
-    <a href="/2019/07/04/interface/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">interface</div>
+    <a href="/2020/08/19/linux运行级别/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux运行级别</div>
       <i class="icon-circle-right"></i>
     </a>
   

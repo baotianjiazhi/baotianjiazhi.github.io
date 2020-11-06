@@ -146,6 +146,216 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-go复习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/08/go复习/">go复习_1</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/08/go复习/" class="archive-article-date">
+  	<time datetime="2019-09-08T13:14:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近又看了无闻的go语言入门，发现有很多知识点已经遗忘了或者在一开始看视频学习的时候就没有涉及到，写一篇博客记录一下。</p>
+<h1 id="defer的执行时间"><a href="#defer的执行时间" class="headerlink" title="defer的执行时间"></a>defer的执行时间</h1><hr>
+<p>defer执行于函数运行结束之后或者return之后，起按照先进后出的顺序执行。示例如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line">    fmt.Println(test())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func test() (i int) &#123;</span><br><span class="line"></span><br><span class="line">    defer func() &#123; i++ &#125;()</span><br><span class="line">    defer func() &#123; fmt.Println(i) &#125;()</span><br><span class="line"></span><br><span class="line">    //todo</span><br><span class="line">    //...</span><br><span class="line"></span><br><span class="line">    fmt.Println(0)</span><br><span class="line">    return 1</span><br><span class="line">    //defer执行时机</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h1 id="golang中new和make的区别"><a href="#golang中new和make的区别" class="headerlink" title="golang中new和make的区别"></a>golang中new和make的区别</h1><hr>
+<p>首先简单来说，<code>make</code>在<code>golang</code>中只适用于<code>map</code>, <code>channel</code>, <code>slice</code>。</p>
+<p>new用来分配内存，但与其他语言中的同名函数不同，它不会初始化内存，只会将内存置零；也就是说，new(T)会为类型为T的新项分配已置零的内存空间，并返回他的地址，也就是一个类型为*T的值。用Go的术语来说，它返回一个指针，改指针指向新分配的，类型为T的零值；</p>
+<p>make的目的不同于new，它只用于<code>slice</code>,<code>map</code>,<code>channel</code>的创建，并返回类型为T（非指针）的已初始化（非零值）的值；出现这种差异的原因在于，这三种类型本质上为引用类型，它们在使用前必须初始化；</p>
+<h1 id="golang中字符串不可变"><a href="#golang中字符串不可变" class="headerlink" title="golang中字符串不可变"></a>golang中字符串不可变</h1><hr>
+<ol>
+<li>string不可变是指放字符串的内存区域不可变, 即不可像其他语言中一样进行<code>s[0]=&quot;W&quot;</code>这样的操作。</li>
+<li>如果想要改变<code>string</code>类型中的某一个字符，需要将整个字符串转换为字节类型切片，例如：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">s := &quot;Hello World&quot;</span><br><span class="line">r := []byte(s)</span><br><span class="line">r[0] = &apos;w&apos;</span><br><span class="line">s = string(r)</span><br><span class="line">fmt.Println(s)</span><br></pre></td></tr></table></figure>
+
+<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">func bubble_sort(x []int) []int &#123;</span><br><span class="line">	for i := 0; i &lt; len(x); i++ &#123;</span><br><span class="line">		for j := 0; j &lt; len(x)-i-1; j++&#123;</span><br><span class="line">			if x[j] &gt; x[j+1] &#123;</span><br><span class="line">				x[j], x[j+1] = x[j+1], x[j]</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><hr>
+<p>（按照约定，只包含一个方法的）接口的名字由方法名加 [e]r 后缀组成，例如 Printer、Reader、Writer、Logger、Converter 等等。还有一些不常用的方式（当后缀 er 不合适时），比如 Recoverable，此时接口名以 able 结尾，或者以 I 开头（像 .NET 或 Java 中那样）。</p>
+<ol>
+<li>类型不需要显式声明它实现了某个接口：接口被隐式地实现。多个类型可以实现同一个接口。</li>
+<li>实现某个接口的类型（除了实现接口方法外）可以有其他的方法。</li>
+<li>一个类型可以实现多个接口。</li>
+<li>接口类型可以包含一个实例的引用， 该实例的类型实现了此接口（接口是动态类型）。</li>
+</ol>
+<blockquote>
+<p>即使接口在类型之后才定义，二者处于不同的包中，被单独编译：只要类型实现了接口中的方法，它就实现了此接口。</p>
+</blockquote>
+<p>Go 语言规范定义了接口方法集的调用规则：</p>
+<ul>
+<li>类型 *T 的可调用方法集包含接受者为 *T 或 T 的所有方法集</li>
+<li>类型 T 的可调用方法集包含接受者为 T 的所有方法</li>
+<li>类型 T 的可调用方法集不包含接受者为 *T 的方法</li>
+</ul>
+<h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><hr>
+<ol>
+<li>结构体在序列化时非导出变量（以小写字母开头的变量名）不会被编码，因此在编码时这些非到处变量的值为其类型的空值</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/08/go复习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-go-module的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/14/go-module的使用/">go_module的使用</a>
+    </h1>
+  
+
+        
+        <a href="/2019/08/14/go-module的使用/" class="archive-article-date">
+  	<time datetime="2019-08-14T02:29:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录一下在B站学习<code>go module</code>的情况,一开始学习的是UP主的gin框架使用,但是UP主使用的包管理工具是GO官方自带的<code>go module</code>,发现比第三方包管理工具<code>vendor</code>要简单一些,主要的使用流程只有三步</p>
+<blockquote>
+<p>go mod init &lt;项目名称&gt;</p>
+</blockquote>
+<blockquote>
+<p>set GOPROXY=<a href="https://mirrors.aliyun.com/goproxy/" target="_blank" rel="noopener">https://mirrors.aliyun.com/goproxy/</a></p>
+</blockquote>
+<blockquote>
+<p>go run main.go</p>
+</blockquote>
+<p>第二步是使用阿里云的镜像，基本上使用这三步就可以自动安装项目需要的包，现阶段遇到的问题是<code>goland</code>中使用的时候哪怕包已经安装成功也会标红，但是可以go run</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Go</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/08/14/go-module的使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-govendor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -719,6 +929,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
             
             <div class="clearfix"></div>

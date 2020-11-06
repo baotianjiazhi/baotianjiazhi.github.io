@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>interface2 | Bao的博客</title>
+  <title>Archives: 2020/10 | Bao的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Go语言中的interface(2)类型转换类型判断可将接口变量还原为原始类型，或用来判断是否实现了某个更具体的接口类型。 12345678910111213141516171819202122type data intfunc(d data) String() string &amp;#123;	return fmt.Sprintf(&amp;quot;data: %d&amp;quot;, d)&amp;#125;func">
-<meta name="keywords" content="go">
-<meta property="og:type" content="article">
-<meta property="og:title" content="interface2">
-<meta property="og:url" content="http://yoursite.com/2019/07/05/interface2/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Bao的博客">
+<meta property="og:url" content="http://yoursite.com/archives/2020/10/index.html">
 <meta property="og:site_name" content="Bao的博客">
-<meta property="og:description" content="Go语言中的interface(2)类型转换类型判断可将接口变量还原为原始类型，或用来判断是否实现了某个更具体的接口类型。 12345678910111213141516171819202122type data intfunc(d data) String() string &amp;#123;	return fmt.Sprintf(&amp;quot;data: %d&amp;quot;, d)&amp;#125;func">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-17T02:23:29.720Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="interface2">
-<meta name="twitter:description" content="Go语言中的interface(2)类型转换类型判断可将接口变量还原为原始类型，或用来判断是否实现了某个更具体的接口类型。 12345678910111213141516171819202122type data intfunc(d data) String() string &amp;#123;	return fmt.Sprintf(&amp;quot;data: %d&amp;quot;, d)&amp;#125;func">
+<meta name="twitter:title" content="Bao的博客">
   
     <link rel="alternative" href="/atom.xml" title="Bao的博客" type="application/atom+xml">
   
@@ -149,165 +144,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-interface2" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      interface2
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/10/01/MySQL/" class="archive-article-date">
+  	<time datetime="2020-10-01T11:29:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/10/01/MySQL/">MySQL</a>
     </h1>
   
 
-        
-        <a href="/2019/07/05/interface2/" class="archive-article-date">
-  	<time datetime="2019-07-05T01:29:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Go语言中的interface-2"><a href="#Go语言中的interface-2" class="headerlink" title="Go语言中的interface(2)"></a>Go语言中的interface(2)</h1><h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><p>类型判断可将接口变量还原为原始类型，或用来判断是否实现了某个更具体的接口类型。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">type data int</span><br><span class="line"></span><br><span class="line">func(d data) String() string &#123;</span><br><span class="line">	return fmt.Sprintf(&quot;data: %d&quot;, d)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	</span><br><span class="line">	var d data = 15</span><br><span class="line">	var x interface&#123;&#125; = d</span><br><span class="line"></span><br><span class="line">	if n, ok := x.(fmt.Stringer);ok &#123;</span><br><span class="line">		fmt.Println(n)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	if d2, ok := x.(data); ok &#123; 	// 转换为原始类型</span><br><span class="line">		fmt.Println(d2)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	e := x.(error)</span><br><span class="line">	fmt.Println(e)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>还可以使用<code>switch</code>语句在多种类型间做出推断匹配，这样空接口就有更多的发挥空间。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	var x interface&#123;&#125; = func(x int) string &#123;</span><br><span class="line">		return fmt.Sprintf(&quot;d: %d&quot;, x)	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	switch v := x.(type) &#123;</span><br><span class="line">	case nil:</span><br><span class="line">		println(&quot;nil&quot;)</span><br><span class="line">	case *int:</span><br><span class="line">		println(*v)</span><br><span class="line">	case func(int) string：</span><br><span class="line">		println(v(100))</span><br><span class="line">	case fmt.Stringer:</span><br><span class="line">		fmt.Println(v)</span><br><span class="line">	default:</span><br><span class="line">		println(&quot;unknow&quot;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">go</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/07/05/interface2/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/07/08/govendor/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          govendor
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/07/04/interface/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">interface</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -330,8 +220,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
